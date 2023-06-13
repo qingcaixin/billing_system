@@ -6,3 +6,7 @@ billing:
     database: billing
     username: root
     password: root
+  #当出现相同名字的类进行注册时，准许覆盖注册
+spring:
+  main:
+    allow-bean-definition-overriding: true
