@@ -39,9 +39,9 @@ public class FileUtil {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-            String oldName = uploadFile.getOriginalFilename();
-            String newName = UUID.randomUUID().toString() +
+            }else {
+                String oldName = uploadFile.getOriginalFilename();
+                String newName = UUID.randomUUID().toString() +
                     oldName.substring(oldName.lastIndexOf("."), oldName.length());
             try {
                 uploadFile.transferTo(new File(folder, newName));
@@ -50,6 +50,8 @@ public class FileUtil {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            }
+
 
             contractList.add(filePath);
         }
