@@ -1,7 +1,6 @@
 package com.gdxt.mapper;
 
 import com.gdxt.dto.ContractQueryDto;
-import com.gdxt.result.CommonResult;
 import com.gdxt.vo.ContractVo;
 import org.apache.ibatis.annotations.Mapper;
 

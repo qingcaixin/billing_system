@@ -19,6 +19,9 @@ public class Master {
     private Long id;
     //甲方名字
     private String name;
+    //合同号
+    private String contractNumber;
+
     //甲方手机号
     private String phone;
     //甲方地址

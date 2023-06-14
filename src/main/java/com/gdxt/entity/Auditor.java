@@ -19,6 +19,8 @@ public class Auditor {
     private Long id;
     //审核人姓名
     private String name;
+    //合同号
+    private String contractNumber;
     //审核人手机号
     private String phone;
     //审核状态 0 拒绝 1 成功
