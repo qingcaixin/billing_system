@@ -27,4 +27,9 @@ public class ContractServiceImpl implements ContractService {
         ContractVo contractVo = contractMapper.getExpireTime(contractQueryDto);
         return contractVo;
     }
+
+    @Override
+    public void updateStatus(String contractNumber) {
+          contractMapper.updateStatus(contractNumber);
+     }
 }

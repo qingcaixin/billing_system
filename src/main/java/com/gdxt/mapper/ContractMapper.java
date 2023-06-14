@@ -16,4 +16,11 @@ public interface ContractMapper {
      * @return
      */
     ContractVo getExpireTime(ContractQueryDto contractQueryDto);
+
+    /**
+     * 停用合同
+     * @param contractNumber
+     * @return
+     */
+    void updateStatus(String contractNumber);
 }

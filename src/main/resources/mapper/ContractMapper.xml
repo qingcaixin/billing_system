@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gdxt.mapper.ContractMapper">
 
+    <!--查询到过期时间的合同-->
     <select id="getExpireTime" resultType="com.gdxt.vo.ContractVo">
         select expire_time from contract
         <where>
@@ -19,5 +20,14 @@
         </where>
      </select>
 
-
+     <!--停用合同-->
+    <update id="updateStatus">
+        update contract
+        <set>
+            <if test="status != null">
+                status = 0,
+            </if>
+        </set>
+        where number = #{contractNumber}
+    </update>
 </mapper>

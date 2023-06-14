@@ -8,6 +8,8 @@ import com.gdxt.util.FileUtil;
 import com.gdxt.vo.ContractVo;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,13 +27,20 @@ import java.util.ArrayList;
 @Slf4j
 @Api(tags = "合同相关接口")
 public class ContractController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContractController.class);
 
     @Autowired
     private ContractService contractService;
 
+    /**
+     * 上传文件api
+     * @param uploadFiles
+     * @param req
+     * @return
+     */
     @PostMapping("/upload")
     public CommonResult<String> upload(@RequestPart("files") MultipartFile[] uploadFiles, HttpServletRequest req){
-        log.info("==========上传文件===========",uploadFiles);
+        LOGGER.info("==========上传文件:{}===========",uploadFiles);
         FileUtil fileUtil = new FileUtil();
         ArrayList contractList = new ArrayList();
         try {
@@ -49,10 +58,22 @@ public class ContractController {
      * @param contractQueryDto
      * @return
      */
-    @PostMapping("expiretime")
+    @PostMapping("/expiretime")
     public CommonResult<ContractVo> selectExpirationTime(@RequestBody ContractQueryDto contractQueryDto){
+        LOGGER.info("=========contractQueryDto:{}============",contractQueryDto);
         ContractVo contractVo = contractService.selectTime(contractQueryDto);
-
         return CommonResult.success(contractVo);
+    }
+
+    /**
+     * 合同到期停用，改变状态
+     * @param contractNumber
+     * @return
+     */
+    @GetMapping("/status")
+    public CommonResult<String> updateStatus(String contractNumber){
+        LOGGER.info("=========contractNumber:{}============",contractNumber);
+        contractService.updateStatus(contractNumber);
+        return CommonResult.success();
     }
 }

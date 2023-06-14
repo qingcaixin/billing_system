@@ -17,4 +17,11 @@ public interface ContractService {
      * @return
      */
     ContractVo selectTime(ContractQueryDto contractQueryDto);
+
+    /**
+     * 合同到期停用
+     * @param contractNumber
+     * @return
+     */
+    void updateStatus(String contractNumber);
 }
