@@ -18,6 +18,6 @@ public class ContractQueryDto {
     private String name;
     //甲方名称
     private String masterName;
-    //甲方手机号
+    //合同号
     private String number;
 }

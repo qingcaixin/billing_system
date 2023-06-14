@@ -45,11 +45,11 @@ public class ContractController {
 
 
     /**
-     * 根据合同名字||甲方名字||手机号查询合同到期时间
+     * 根据合同名字||甲方名字||合同号查询到期时间
      * @param contractQueryDto
      * @return
      */
-    @PostMapping("time")
+    @PostMapping("expiretime")
     public CommonResult<ContractVo> selectExpirationTime(@RequestBody ContractQueryDto contractQueryDto){
         ContractVo contractVo = contractService.selectTime(contractQueryDto);
 
