@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @Author WangXin
@@ -17,5 +18,5 @@ import java.io.Serializable;
 public class ContractVo extends Contract implements Serializable {
 
     //合同到期时间
-    private String expireTime;
+    private LocalDateTime expireTime;
 }
