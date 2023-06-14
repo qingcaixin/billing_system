@@ -13,3 +13,15 @@ create table contract
     status        tinyint(1)  default 1 not null comment  '1启用 0停止 默认是启用1'
 )
     comment '合同信息表' collate = utf8_bin;
+
+create table master
+(
+    id              bigint auto_increment comment '主键'
+        primary key,
+    name            varchar(50) null comment '甲方名字',
+    contract_number varchar(50) null comment '合同号',
+    phone           varchar(50) null comment '甲方手机号',
+    address         varchar(50) null comment '甲方地址'
+
+)
+    comment '甲方信息表' collate = utf8_bin;

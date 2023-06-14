@@ -50,7 +50,7 @@ public class ExpireContractServiceImpl implements ExpireContractService {
                 param.put("code",code);
                 //发送短信获得结果
                 boolean isSend = smsService.send(param, phone);
-                //发微信推送
+                //todo 发微信推送
             }
 
             if (distanceDays < 0){
