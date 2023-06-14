@@ -16,9 +16,14 @@ import org.springframework.stereotype.Service;
 public class ContractServiceImpl implements ContractService {
     @Autowired
     private ContractMapper contractMapper;
+
+    /**
+     * 查询合同到期时间
+     * @param contractQueryDto
+     * @return
+     */
     @Override
     public ContractVo selectTime(ContractQueryDto contractQueryDto) {
-
         ContractVo contractVo = contractMapper.getExpireTime(contractQueryDto);
         return contractVo;
     }

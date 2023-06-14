@@ -10,5 +10,10 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ContractMapper {
+    /**
+     * 查询合同到期时间
+     * @param contractQueryDto
+     * @return
+     */
     ContractVo getExpireTime(ContractQueryDto contractQueryDto);
 }
