@@ -3,9 +3,12 @@ package com.gdxt.controller;
 import com.gdxt.dto.ContractQueryDto;
 import com.gdxt.result.CommonResult;
 import com.gdxt.result.MessageConstant;
+import com.gdxt.service.ContractService;
 import com.gdxt.util.FileUtil;
+import com.gdxt.vo.ContractVo;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +25,9 @@ import java.util.ArrayList;
 @Slf4j
 @Api(tags = "合同相关接口")
 public class ContractController {
+
+    @Autowired
+    private ContractService contractService;
 
     @PostMapping("/upload")
     public CommonResult<String> upload(@RequestPart("files") MultipartFile[] uploadFiles, HttpServletRequest req){
@@ -43,7 +49,10 @@ public class ContractController {
      * @param contractQueryDto
      * @return
      */
-    public CommonResult<String> selectExpirationTime(@RequestBody ContractQueryDto contractQueryDto){
-        return null;
+    @PostMapping("time")
+    public CommonResult<ContractVo> selectExpirationTime(@RequestBody ContractQueryDto contractQueryDto){
+        ContractVo contractVo = contractService.selectTime(contractQueryDto);
+
+        return CommonResult.success(contractVo);
     }
 }
