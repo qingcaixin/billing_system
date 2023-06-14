@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 /**
  * @Author WangXin
  * @Date 2023/6/14 10:45
@@ -28,9 +30,9 @@ public class Contract {
     //合同存储路径
     private String path;
     //合同签订时间
-    private String signTime;
+    private LocalDateTime signTime;
     //合同到期时间
-    private String expireTime;
+    private LocalDateTime expireTime;
     //审核状态 0 拒绝  1 成功
     private Integer reviewStatus;
     // 1启用 0停止 默认是启用1
