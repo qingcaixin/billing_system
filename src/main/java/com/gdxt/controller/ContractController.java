@@ -1,10 +1,6 @@
 package com.gdxt.controller;
 
-/**
- * @Author WangXin
- * @Date 2023/6/13 15:57
- */
-
+import com.gdxt.dto.ContractQueryDto;
 import com.gdxt.result.CommonResult;
 import com.gdxt.result.MessageConstant;
 import com.gdxt.util.FileUtil;
@@ -12,9 +8,14 @@ import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+
+
+/**
+ * @Author WangXin
+ * @Date 2023/6/13 15:57
+ */
 
 @RestController
 @RequestMapping("/contract")
@@ -34,5 +35,15 @@ public class ContractController {
          }
         System.out.println(contractList);
         return CommonResult.success(MessageConstant.UPLOAD_SUCCESS);
+    }
+
+
+    /**
+     * 根据合同名字||甲方名字||手机号查询合同到期时间
+     * @param contractQueryDto
+     * @return
+     */
+    public CommonResult<String> selectExpirationTime(@RequestBody ContractQueryDto contractQueryDto){
+        return null;
     }
 }
